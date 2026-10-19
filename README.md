@@ -6,53 +6,56 @@
 **Beyond the limits of your device.**  
 An independent project by **DiegOS Studio**.
 
-[Website](./index.html) · [Estado técnico](./docs/ESTADO-ACTUAL.md) · [Seguridad](./docs/SEGURIDAD-Y-RECUPERACION.md)
+[Web interactiva](./index.html) · [Estado real](./docs/ESTADO-ACTUAL.md) · [Instalación](./docs/INSTALACION.md) · [Versiones](./releases/README.md)
 
 </div>
 
 > [!WARNING]
-> **No se recomienda flashear v24 en el estado actual.** Las correcciones táctiles v21–v24 se verificaron con arneses de prueba en PC, pero aún no se han validado físicamente en el reloj. Lee las reglas de recuperación antes de cualquier prueba.
+> **Estado experimental.** La galería, Cubo y el teclado funcionan según las pruebas de Diego. La entrada táctil sigue fallando ocasionalmente; el launcher se comporta mal a veces al deslizar, y Super Hex es inestable y actualmente injugable por el fallo táctil. No describir v24 como estable ni recomendarla como una release probada en hardware.
 
-## ¿Qué es?
+## ¿Qué es Project Beyond?
 
-Project Beyond es un proyecto independiente para añadir experiencias ligeras al Samsung Galaxy Fit3 (SM-R390), manteniendo el firmware base y extendiendo su interfaz mediante código C y LVGL.
+Project Beyond amplía de forma experimental el firmware de la Samsung Galaxy Fit3 con una interfaz de aplicaciones y experiencias propias en C/LVGL. No es un sistema operativo nuevo ni un producto oficial de Samsung.
 
-La edición documentada aquí se centra en firmware base **`R390XXU0AZA3`**, pantalla **256 × 402**, FreeRTOS y LVGL 8.
+## Estado confirmado por el desarrollador
 
-## Funciones
-
-- **Apps extras:** launcher integrado en Ajustes.
-- **Galería:** lectura de imágenes RGB565 guardadas en `/user/`.
-- **Teclado QWERTY horizontal:** entrada para campos compatibles y respuestas rápidas.
-- **Super Hex:** juego original sin fin y dificultad progresiva.
-- **Cubo:** juego original de plataformas, 15 niveles.
-- **Herramientas HTML:** transferencia de fotografías o archivos mediante Bluetooth SPP; algunas rutas siguen sin probarse en hardware real.
-
-La música integrada se retiró del firmware porque no se encontró una ruta A2DP Source funcional ni fuente verificable de la app anterior.
-
-## Estado resumido
-
-| Área | Estado |
+| Función | Estado actual |
 |---|---|
-| Último paquete experimental documentado | `fit3-apps-toque-v24.bin` |
-| v21–v24 | Código revisado y pruebas host; falta validación en reloj |
-| Overlay en Ajustes | Causa identificada en v22; posible scroll en contenedor padre pendiente |
-| Cierre X de Super Hex | Corregido y reproducido en arnés de PC; falta prueba física |
-| UI nueva de Cubo | Compila; falta revisar su render de host |
-| Firmware instalado en el reloj | Pendiente: stock AZA3 o v12 |
+| Galería | Funciona |
+| Cubo | Funciona; juego inspirado en *Geometry Dash* |
+| Teclado QWERTY | Funciona |
+| Táctil de las apps añadidas | Mejoró, pero todavía falla ocasionalmente |
+| Launcher Apps extras | No está suficientemente optimizado; algunos toques fallan, especialmente al deslizar |
+| Super Hex | Inestable e injugable actualmente por los problemas táctiles |
 
-Más detalle: [estado técnico actual](docs/ESTADO-ACTUAL.md), [plan de pruebas](docs/PLAN-DE-PRUEBAS.md) y [construcción](docs/BUILD-Y-PRUEBAS.md).
+**Inspiraciones:** Cubo toma inspiración de *Geometry Dash* y Super Hex de *Super Hexagon*. Son proyectos independientes; no se afirma afiliación ni se incluyen recursos oficiales de esos juegos.
+
+## Base y créditos
+
+Project Beyond se desarrolla sobre la base del proyecto **FreeMyFit3**. Agradecimientos a Musicalista por la base y a yuriyurin por el instalador web original.
+
+- [FreeMyFit3 — código y documentación de la base](https://github.com/Musicalista/freemyfit3)
+- [fit3-flasher — instalador web de yuriyurin](https://github.com/yuriyurin/fit3-flasher)
+
+El fit3-flasher no es una herramienta creada por DiegOS Studio. Consulta siempre las advertencias de sus autores y las de FreeMyFit3 antes de instalar firmware.
+
+## Instalación y versiones
+
+Lee primero [Instalación y recuperación](docs/INSTALACION.md). El ZIP de una release será añadido por el autor e incluirá el firmware `.bin` y el HTML para transferir fotos desde el PC al reloj. **El ZIP todavía no está adjunto.**
+
+La última versión experimental documentada es v24. Sus correcciones táctiles fueron verificadas con arneses en PC, pero el comportamiento físico no se ha confirmado. No la trates como estable hasta que el autor publique los resultados de prueba en el reloj.
 
 ## Seguridad
 
-- No subir `stock-aza3.bin`, firmware empaquetado, dumps completos, archivos `.f3a`, claves ni direcciones MAC.
+- La base está dirigida a Galaxy Fit3 **SM-R390** y firmware base **R390XXU0AZA3**; no asumas compatibilidad con otras versiones, variantes o dispositivos.
+- Conserva una copia de la firmware original y confirma cómo recuperar el reloj antes de modificarlo.
+- Batería ≥50 % y cierra Galaxy Wearable/otras conexiones que usen el Bluetooth antes de conectar el flasher.
+- No restablezcas ni flashees a ciegas: un restablecimiento de fábrica no cambia la versión del firmware.
+- No publicar firmware original, dumps completos, claves ni direcciones MAC.
 - No usar comandos `FORMAT`, `SHIPMODE` ni `DELLBTADDR`.
-- No reutilizar la ruta fija `REMOTE_PATH` del flasher para archivos arbitrarios.
-- No considerar un validador de imagen equivalente a una prueba de arranque en el reloj.
-- Sigue siempre [seguridad y recuperación](docs/SEGURIDAD-Y-RECUPERACION.md).
 
-## Licencia y marcas
+## Código fuente y licencia
 
-La licencia del código derivado está pendiente de revisión. No se declara permiso general de redistribución. Consulta [licencias y atribuciones](docs/LICENCIAS-Y-ATRIBUCIONES.md).
+El código fuente completo de trabajo aún no está incorporado. La licencia del código derivado está pendiente de revisión; no se declara permiso general de redistribución. Consulta [licencias y atribuciones](docs/LICENCIAS-Y-ATRIBUCIONES.md).
 
 Project Beyond es independiente y no está afiliado, patrocinado ni certificado por Samsung.
