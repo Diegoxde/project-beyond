@@ -1,0 +1,25 @@
+# Firmware / dumps — never commit
+*.bin
+*.f3a
+*.elf
+*.hex
+stock-aza3.bin
+best1502x_b319_user.bin
+*.dump
+*.dmp
+
+# Secrets and personal device data
+.env
+.env.*
+*.key
+*.pem
+*mac*.txt
+headset.txt
+
+# Build outputs
+build/
+dist/
+__pycache__/
+*.pyc
+node_modules/
+.playwright/
