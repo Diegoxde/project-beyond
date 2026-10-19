@@ -1,44 +1,56 @@
-# Estado técnico actual — Galaxy Fit3 AZA3
+# Estado actual — Project Beyond para Galaxy Fit3
 
-**Proyecto:** Project Beyond · DiegOS Studio  
 **Dispositivo:** Samsung Galaxy Fit3 SM-R390  
-**Firmware base:** `R390XXU0AZA3`  
-**Última versión experimental documentada:** v24
+**Firmware base de trabajo:** R390XXU0AZA3  
+**Último paquete experimental documentado:** v24  
+**Estado:** experimental; no declarar estable.
 
-## Prioridad: entrada táctil
+## Estado reportado por Diego
 
-El sistema oficial responde bien. El problema está localizado en las aplicaciones añadidas y sus overlays. No hay evidencia suficiente para modificar el driver táctil.
+| Módulo | Estado en reloj |
+|---|---|
+| Galería | **Funciona** |
+| Cubo | **Funciona** |
+| Teclado QWERTY | **Funciona** |
+| Táctil de las apps añadidas | **Mejoró, pero todavía falla ocasionalmente** |
+| Launcher Apps extras | **Necesita optimización**; a veces los toques no se registran correctamente, sobre todo al deslizar, donde puede bloquearse o confundirse el gesto |
+| Super Hex | **Inestable e injugable actualmente** por los fallos táctiles |
 
-| Versión | Cambio | Evidencia |
+Estos estados son observaciones del desarrollador en el dispositivo, y tienen prioridad sobre las pruebas parciales de host descritas más abajo.
+
+## Prioridades de desarrollo
+
+1. Corregir los gestos del launcher: distinguir un toque de un deslizamiento, evitar que el overlay desplace Ajustes y recuperar correctamente el estado tras un evento de soltar perdido.
+2. Resolver la entrada táctil de Super Hex para que el juego sea jugable antes de considerarlo parte de una release estable.
+3. Verificar que el teclado y la galería siguen funcionando tras cada cambio táctil.
+4. Revisar el render de la nueva UI de Cubo en host; su compilación no garantiza que se vea correctamente.
+5. No cambiar el driver táctil oficial sin evidencia: el sistema original responde bien y los fallos se concentran en las apps añadidas.
+
+## Cambios técnicos previos documentados
+
+| Versión | Cambio | Evidencia/limitación |
 |---|---|---|
 | v21 | Tolerancias: launcher 24 px, teclado 22 px, galería 14 px; latch al presionar en juegos | Pruebas de host parciales |
-| v22 | Corregida bandera scroll de `make_canvas` y limpiado scroll-chain `0x300` | Revisión de código/LVGL; sin reloj real |
-| v23 | Cada press inicia gesto nuevo para evitar bloqueo tras release perdido | Reproducido en PC |
-| v24 | La X de Super Hex se detecta al presionar desde cualquier pantalla | Arnés de PC; falta hardware |
+| v22 | Ajuste de flags de scroll en `make_canvas` y limpieza de scroll-chain `0x300` | Revisión de código/LVGL; no prueba física |
+| v23 | Cada evento de presionar inicia un gesto nuevo para evitar bloqueo tras un release perdido | Reproducido en PC |
+| v24 | La X de Super Hex se detecta al presionar desde cualquier pantalla | Arnés de PC; falta validación específica en reloj |
 
-## Pendientes críticos
+Aunque algunos cambios de código pasaron pruebas de PC, Diego confirma que la experiencia táctil sigue siendo imperfecta en el reloj real.
 
-- Confirmar si el reloj tiene stock AZA3 o v12.
-- Probar en reloj el toque, el movimiento del overlay y la X de Super Hex.
-- Si el overlay desplaza Ajustes, investigar contenedores padre con `lv_obj_get_parent`.
-- Si la pantalla no devuelve coordenadas al presionar, la última posición puede reutilizarse; no hay solución segura confirmada.
-- Revisar visualmente en PC la UI nueva de Cubo.
-- Probar el teclado QWERTY y respuesta rápida.
-- Medir FPS reales antes de cambiar el periodo del temporizador.
-- Decidir si se mantiene el tile Recuperación.
-- Regenerar la fuente antialias final con la tipografía elegida por Diego.
+## Módulos
 
-## Módulos documentados
+- **Launcher:** `menu.inc.c`; Galería, Super Hex, Cubo, Recuperación, Ayuda y Cerrar.
+- **Galería:** `gallery.inc.c`; imágenes RGB565 bajo `/user/`, hasta 24 imágenes.
+- **Teclado:** `kbd_qwerty.c`; teclado QWERTY horizontal.
+- **Super Hex:** `superhex.inc.c`; juego original inspirado en *Super Hexagon*.
+- **Cubo:** `runner.inc.c`, `runner_levels.inc`; 15 niveles originales, inspirado en *Geometry Dash*.
+- **Música:** retirada de la compilación; no hay ruta A2DP Source demostrada.
 
-- **Launcher:** `menu.inc.c`, filas 76 px; Galería, Super Hex, Cubo, Recuperación, Ayuda y Cerrar.
-- **Galería:** `gallery.inc.c`; `/user/index.txt`, `/user/fNN.rgb565`, `/user/t_fNN.rgb565`; hasta 24 imágenes.
-- **Teclado:** `kbd_qwerty.c`; horizontal, margen 22 px.
-- **Super Hex:** `superhex.inc.c`; modo sin fin.
-- **Cubo:** `runner.inc.c`, `runner_levels.inc`; 15 niveles originales.
-- **Música:** retirada; no hay una ruta A2DP Source demostrada.
+Las inspiraciones son referencias de diseño; Project Beyond no está afiliado a los autores de esos juegos y no debe incluir recursos protegidos sin permiso.
 
-## Firmware y símbolos de referencia
+## Seguridad
 
-Los offsets, hashes y direcciones son datos de trabajo reportados por el autor, no una garantía de compatibilidad. Imagen principal: `best1502x_b319_user.bin`; cave libre reportada en offset `0x320522`; hooks reportados en `0x2c1d0802` y `0x2c1b76a0`. Driver táctil sin modificar.
-
-**No distribuir ni flashear binarios desde este repositorio.** Las pruebas de host no prueban el arranque ni el comportamiento en reloj.
+- No se ha demostrado que v24 funcione de forma estable en el reloj.
+- No flashear directamente sobre v12: ese salto no está probado en este proyecto.
+- Antes de una instalación, verificar modelo, versión base, integridad del archivo y recuperación posible.
+- Las instrucciones completas están en [INSTALACION.md](INSTALACION.md).
