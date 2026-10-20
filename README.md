@@ -4,58 +4,53 @@
 ### Galaxy Fit3 · SM-R390 · R390XXU0AZA3
 
 **Beyond the limits of your device.**  
-An independent project by **DiegOS Studio**.
+Un proyecto independiente de **DiegOS Studio**.
 
-[Web interactiva](./index.html) · [Estado real](./docs/ESTADO-ACTUAL.md) · [Instalación](./docs/INSTALACION.md) · [Versiones](./releases/README.md)
+[Web interactiva](./index.html) · [LEEME antes de instalar](./LEEME-ANTES-DE-INSTALAR.md) · [Estado actual](./docs/ESTADO-ACTUAL.md) · [Instalación](./docs/INSTALACION.md) · [Release](./releases/README.md)
 
 </div>
 
 > [!WARNING]
-> **Estado experimental.** La galería, Cubo y el teclado funcionan según las pruebas de Diego. La entrada táctil sigue fallando ocasionalmente; el launcher se comporta mal a veces al deslizar, y Super Hex es inestable y actualmente injugable por el fallo táctil. No describir v24 como estable ni recomendarla como una release probada en hardware.
+> **Versión inicial experimental.** Project Beyond ha sido probado en un reloj real, pero mantiene fallos conocidos: el teclado pierde algunos toques, el launcher puede requerir varios intentos, Cubo presenta pausas ocasionales, Super Hex es inestable y la galería puede reemplazar fotos anteriores al volver a transferir imágenes.
 
 ## ¿Qué es Project Beyond?
 
-Project Beyond amplía de forma experimental el firmware de la Samsung Galaxy Fit3 con una interfaz de aplicaciones y experiencias propias en C/LVGL. No es un sistema operativo nuevo ni un producto oficial de Samsung.
+Project Beyond amplía de forma experimental componentes adicionales del software de la Samsung Galaxy Fit3 mediante una interfaz de aplicaciones y experiencias propias. Incluye una galería, un teclado QWERTY y juegos. No es un sistema operativo nuevo ni un producto oficial de Samsung.
 
-## Estado confirmado por el desarrollador
+## Estado actual reportado por el desarrollador
 
-| Función | Estado actual |
+| Función | Estado |
 |---|---|
-| Galería | Funciona |
-| Cubo | Funciona; juego inspirado en *Geometry Dash* |
-| Teclado QWERTY | Funciona |
-| Táctil de las apps añadidas | Mejoró, pero todavía falla ocasionalmente |
-| Launcher Apps extras | No está suficientemente optimizado; algunos toques fallan, especialmente al deslizar |
-| Super Hex | Inestable e injugable actualmente por los problemas táctiles |
+| Galería | Funciona; al volver a transferir fotos desde el instalador HTML del PC, las nuevas pueden reemplazar las anteriores. |
+| Cubo | Jugable; ocasionalmente se congela alrededor de medio segundo y continúa. Inspirado en Geometry Dash. |
+| Teclado QWERTY | Experimental e inconsistente; no recomendado para el uso diario. |
+| Launcher Apps extras | Mejoró, pero algunos toques o deslizamientos pueden fallar. |
+| Pantalla táctil | Mejoró respecto a versiones previas; quedan fallos ocasionales y raros toques fantasma. |
+| Super Hex | Inestable; no se recomienda jugarlo actualmente. Inspirado en Super Hexagon. |
 
-**Inspiraciones:** Cubo toma inspiración de *Geometry Dash* y Super Hex de *Super Hexagon*. Son proyectos independientes; no se afirma afiliación ni se incluyen recursos oficiales de esos juegos.
+Si una sección no abre tras tocarla, el desarrollador ha observado que apagar y volver a encender la pantalla puede hacer que aparezca la sección previamente tocada. Es una solución temporal, no una reparación definitiva. La respuesta táctil también puede parecer mejorar tras un tiempo de uso, pero no es un comportamiento confirmado.
 
-## Base y créditos
+Consulta el [estado actual detallado](./docs/ESTADO-ACTUAL.md) y el [LEEME antes de instalar](./LEEME-ANTES-DE-INSTALAR.md) antes de modificar el reloj.
 
-Project Beyond se desarrolla sobre la base del proyecto **FreeMyFit3**. Agradecimientos a Musicalista por la base y a yuriyurin por el instalador web original.
+## Compatibilidad
 
-- [FreeMyFit3 — código y documentación de la base](https://github.com/Musicalista/freemyfit3)
-- [fit3-flasher — instalador web de yuriyurin](https://github.com/yuriyurin/fit3-flasher)
+Objetivo de esta publicación: **Samsung Galaxy Fit3 SM-R390**, firmware base **R390XXU0AZA3**. No instales el paquete en otros modelos o firmwares sin verificar su compatibilidad.
 
-El fit3-flasher no es una herramienta creada por DiegOS Studio. Consulta siempre las advertencias de sus autores y las de FreeMyFit3 antes de instalar firmware.
+El archivo previsto para la publicación es `Proyect Beyond.bin`. La disponibilidad del binario debe comprobarse en la sección de releases; no se debe asumir que el archivo está adjunto si no aparece allí.
 
-## Instalación y versiones
+## Créditos
 
-Lee primero [Instalación y recuperación](docs/INSTALACION.md). El ZIP de una release será añadido por el autor e incluirá el firmware `.bin` y el HTML para transferir fotos desde el PC al reloj. **El ZIP todavía no está adjunto.**
+- [FreeMyFit3 — Musicalista](https://github.com/Musicalista/freemyfit3), proyecto base.
+- [fit3-flasher — yuriyurin](https://github.com/yuriyurin/fit3-flasher), herramienta externa de instalación.
+- [LVGL](https://lvgl.io/), biblioteca gráfica.
+- Cubo toma inspiración de Geometry Dash; Super Hex, de Super Hexagon.
 
-La última versión experimental documentada es v24. Sus correcciones táctiles fueron verificadas con arneses en PC, pero el comportamiento físico no se ha confirmado. No la trates como estable hasta que el autor publique los resultados de prueba en el reloj.
+Project Beyond no está afiliado, patrocinado ni certificado por Samsung ni por los autores de los juegos citados. El flasher no es una herramienta creada por DiegOS Studio.
 
-## Seguridad
+## Seguridad y responsabilidad
 
-- La base está dirigida a Galaxy Fit3 **SM-R390** y firmware base **R390XXU0AZA3**; no asumas compatibilidad con otras versiones, variantes o dispositivos.
-- Conserva una copia de la firmware original y confirma cómo recuperar el reloj antes de modificarlo.
-- Batería ≥50 % y cierra Galaxy Wearable/otras conexiones que usen el Bluetooth antes de conectar el flasher.
-- No restablezcas ni flashees a ciegas: un restablecimiento de fábrica no cambia la versión del firmware.
-- No publicar firmware original, dumps completos, claves ni direcciones MAC.
-- No usar comandos `FORMAT`, `SHIPMODE` ni `DELLBTADDR`.
+Lee la guía de [instalación y recuperación](./docs/INSTALACION.md). Mantén al menos un 50 % de batería, conserva el firmware original y verifica que existe un procedimiento de recuperación compatible antes de instalar. No uses comandos `FORMAT`, `SHIPMODE` ni `DELLBTADDR`.
 
-## Código fuente y licencia
+El proyecto es experimental, se proporciona tal como está y sin garantía de funcionamiento. Modificar el software puede provocar pérdida de datos, fallos o dejar el dispositivo inutilizable. La compatibilidad y la recuperación no están garantizadas. No se debe redistribuir firmware propietario de Samsung sin autorización.
 
-El código fuente completo de trabajo aún no está incorporado. La licencia del código derivado está pendiente de revisión; no se declara permiso general de redistribución. Consulta [licencias y atribuciones](docs/LICENCIAS-Y-ATRIBUCIONES.md).
-
-Project Beyond es independiente y no está afiliado, patrocinado ni certificado por Samsung.
+**Project Beyond: más posibilidades para la Galaxy Fit3, con transparencia sobre sus límites.**
