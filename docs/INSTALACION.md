@@ -1,50 +1,53 @@
-# Instalación y recuperación
+# Instalación y recuperación — Project Beyond
 
-Lee todo antes de continuar. Modificar firmware puede dejar el reloj inutilizable. Project Beyond y FreeMyFit3 son proyectos no oficiales y se usan bajo tu propio riesgo.
+Lee todo antes de continuar. Project Beyond es una modificación experimental e independiente. Modificar firmware puede provocar fallos, pérdida de datos o dejar el reloj inutilizable.
 
 ## Antes de empezar
 
 - Dispositivo objetivo: **Samsung Galaxy Fit3 SM-R390** con firmware base **R390XXU0AZA3**.
-- Usa únicamente un paquete creado para esa base exacta. No lo instales en otras variantes, firmware o dispositivos.
-- Ten disponible el firmware original y un método de recuperación que sepas utilizar.
-- Carga la pulsera al menos al 50 %.
-- Usa un PC con un navegador compatible con el flasher web.
-- Cierra Galaxy Wearable y desconecta otras aplicaciones/dispositivos que estén usando la conexión Bluetooth de la pulsera.
+- Paquete previsto: `Proyect Beyond.bin`. Confirma el nombre y la integridad del archivo que descargaste.
+- Ten disponible una copia del firmware original y un procedimiento de recuperación que sepas utilizar.
+- Carga el reloj al menos al **50 %**.
+- Usa un PC y una versión confiable del flasher compatible con el paquete.
+- Cierra Galaxy Wearable y otros programas que puedan ocupar la conexión Bluetooth.
 
-**Importante sobre el restablecimiento:** restablecer de fábrica borra datos/emparejamientos, pero no cambia el firmware instalado. No es un método para volver a AZA3 ni sustituye la recuperación del firmware. La recomendación de hacerlo antes de la primera instalación es una preparación opcional, no una condición técnica verificada por este proyecto.
+**Restablecer de fábrica no devuelve el firmware original.** Solo limpia datos y emparejamientos. No se considera necesario restablecer de fábrica ni volver al firmware stock cada vez que se instala una versión nueva compatible.
 
 ## Primera instalación desde firmware original
 
-1. Comprueba en Ajustes del reloj la versión del firmware. La base objetivo debe coincidir exactamente con la indicada para el paquete, actualmente `R390XXU0AZA3`. Si no coincide, detente.
-2. Si decides dejar el reloj limpio, puedes restablecerlo de fábrica y dejarlo en la pantalla inicial. Esto no cambia el firmware.
-3. No lo emparejes todavía con el teléfono. Cierra Galaxy Wearable y cualquier herramienta que pueda ocupar el Bluetooth.
-4. Abre el instalador web **fit3-flasher**, creado por yuriyurin: [github.com/yuriyurin/fit3-flasher](https://github.com/yuriyurin/fit3-flasher). Sigue la documentación original del proyecto y confirma que estás en la página auténtica.
-5. Conecta el reloj desde el PC mediante el servicio Bluetooth serie/SPP que utiliza el flasher. Si no logra conectar o la versión no coincide, no continúes.
-6. Selecciona el archivo `.bin` incluido en el ZIP de la release de Project Beyond y revisa las confirmaciones y el nombre del paquete.
-7. Inicia la instalación solo si entiendes el riesgo y tienes un camino de recuperación. Mantén el reloj cerca del PC, no cierres la página y no apagues ni desconectes el reloj durante la transferencia.
-8. Espera a que el instalador indique que terminó. Después comprueba que el reloj arranca y prueba las funciones. No lo emparejes con el teléfono hasta confirmar que el firmware y las funciones básicas se comportan como esperas.
+1. Comprueba que el reloj es SM-R390 y que el firmware coincide exactamente con la base admitida por el paquete.
+2. Conserva el firmware original y verifica previamente la posibilidad de recuperación. Si no tienes un método de recuperación que entiendas, detente.
+3. Cierra Galaxy Wearable y otras herramientas que puedan usar Bluetooth.
+4. Abre el instalador externo [fit3-flasher de yuriyurin](https://github.com/yuriyurin/fit3-flasher) y sigue su documentación original.
+5. Conecta el reloj desde el PC mediante el servicio Bluetooth serial/SPP que utilice la herramienta. Si no conecta o la versión del firmware no coincide, no continúes.
+6. Selecciona `Proyect Beyond.bin` y verifica que sea el paquete correcto para tu dispositivo.
+7. Inicia la instalación solo si comprendes los riesgos. No cierres el instalador ni interrumpas la conexión durante el proceso.
+8. Espera a que el flasher indique que terminó. Comprueba el arranque y prueba por separado el launcher, teclado, galería y juegos.
 
-## Actualizar desde una versión anterior de Project Beyond
+## Actualizaciones de Project Beyond
 
-1. Confirma el modelo y que la versión instalada pertenece a una base compatible con el paquete nuevo.
-2. Descarga el ZIP de la nueva release y verifica que contiene el `.bin` correcto.
-3. Repite el procedimiento con el PC, fit3-flasher y la conexión Bluetooth serie/SPP; cierra Galaxy Wearable y otras conexiones.
-4. Selecciona el nuevo `.bin`, confirma el destino y espera a que finalice sin desconectar el reloj.
-5. Comprueba el arranque y vuelve a probar Galería, Cubo, teclado, launcher y Super Hex.
+No debería ser necesario volver al firmware stock ni restablecer de fábrica para instalar una versión nueva **si es compatible con la instalación existente**. Antes de actualizar:
 
-No se necesita restablecimiento de fábrica para cada actualización según el flujo previsto por el proyecto, pero **la actualización directa solo debe hacerse entre versiones cuya compatibilidad esté confirmada**. En particular, instalar v24 directamente sobre v12 no está probado: no lo hagas basándote únicamente en estas instrucciones.
+1. Lee las notas de la nueva publicación.
+2. Confirma que el paquete corresponde al mismo modelo y a una ruta de actualización compatible.
+3. Conserva una copia de los archivos y fotos importantes.
+4. Usa el procedimiento de instalación indicado por la publicación y no desconectes el reloj durante la transferencia.
+5. Tras actualizar, verifica todas las funciones.
 
-## Si algo no coincide o falla
+No des por hecho que cualquier salto entre versiones es compatible: instala únicamente cuando esa ruta esté validada o documentada por el proyecto.
 
-- Si el firmware no es exactamente la base admitida por el paquete, detente.
-- Si el flasher no conecta, no pruebes comandos de servicio al azar.
-- Si la transferencia falla, no repitas la instalación a ciegas; guarda el mensaje/log y consulta la documentación original.
-- No uses los comandos `FORMAT`, `SHIPMODE` ni `DELLBTADDR`.
-- No asumas que un restablecimiento de fábrica arregla un firmware modificado.
+## Problemas y recuperación
 
-## Créditos y herramientas
+- **El toque no responde:** apagar y volver a encender la pantalla ha servido como solución temporal en las pruebas, pero no garantiza recuperar todos los eventos.
+- **La galería reemplaza fotos anteriores:** conserva los originales en el PC y evita transferencias repetidas hasta respaldar las imágenes.
+- **El flasher no conecta o la instalación falla:** no improvises comandos ni repitas el proceso a ciegas. Guarda el mensaje de error y consulta la documentación original.
+- **El reloj queda bloqueado:** usa únicamente un método de recuperación comprobado para el modelo y firmware. No se garantiza que todos los fallos sean recuperables.
 
-- **FreeMyFit3**, proyecto base: [github.com/Musicalista/freemyfit3](https://github.com/Musicalista/freemyfit3)
-- **fit3-flasher**, instalador web de yuriyurin: [github.com/yuriyurin/fit3-flasher](https://github.com/yuriyurin/fit3-flasher)
+No uses los comandos `FORMAT`, `SHIPMODE` ni `DELLBTADDR`.
 
-El flasher no es obra de DiegOS Studio. Consulta las instrucciones y advertencias originales en ambos repositorios; pueden cambiar con el tiempo.
+## Créditos
+
+- [FreeMyFit3 — Musicalista](https://github.com/Musicalista/freemyfit3), proyecto base.
+- [fit3-flasher — yuriyurin](https://github.com/yuriyurin/fit3-flasher), herramienta externa de instalación.
+
+El flasher no es obra de DiegOS Studio. Consulta las instrucciones y advertencias originales de sus autores.
