@@ -1,56 +1,49 @@
-# Estado actual — Project Beyond para Galaxy Fit3
+# Estado actual — Project Beyond
 
+**Publicación prevista:** versión 1  
 **Dispositivo:** Samsung Galaxy Fit3 SM-R390  
-**Firmware base de trabajo:** R390XXU0AZA3  
-**Último paquete experimental documentado:** v24  
-**Estado:** experimental; no declarar estable.
+**Firmware base:** R390XXU0AZA3  
+**Estado:** experimental; probado en un reloj real, con limitaciones conocidas.
 
-## Estado reportado por Diego
+## Resultados reportados por Diego
 
-| Módulo | Estado en reloj |
+| Módulo | Estado observado en el reloj |
 |---|---|
-| Galería | **Funciona** |
-| Cubo | **Funciona** |
-| Teclado QWERTY | **Funciona** |
-| Táctil de las apps añadidas | **Mejoró, pero todavía falla ocasionalmente** |
-| Launcher Apps extras | **Necesita optimización**; a veces los toques no se registran correctamente, sobre todo al deslizar, donde puede bloquearse o confundirse el gesto |
-| Super Hex | **Inestable e injugable actualmente** por los fallos táctiles |
+| Galería | Funciona, pero existe un error al transferir fotos por segunda vez desde el instalador HTML del PC: las nuevas reemplazan a las anteriores. |
+| Cubo | Jugable. En ocasiones se congela aproximadamente medio segundo y continúa. Inspirado en Geometry Dash. |
+| Teclado QWERTY | Experimental; todavía pierde algunos toques y es inconsistente para el uso diario. |
+| Launcher Apps extras | Mejoró, pero a veces no registra el toque o se comporta mal al deslizar. |
+| Táctil | Mejoró considerablemente; quedan retrasos ocasionales y muy pocos toques fantasma. |
+| Super Hex | Sigue inestable y no se recomienda jugarlo actualmente. Inspirado en Super Hexagon. |
 
-Estos estados son observaciones del desarrollador en el dispositivo, y tienen prioridad sobre las pruebas parciales de host descritas más abajo.
+Estos son resultados reportados tras probar el paquete en un reloj físico. Las pruebas de compilación, validación y host en PC son complementarias y no sustituyen las pruebas reales.
 
-## Prioridades de desarrollo
+## Navegación táctil: solución temporal observada
 
-1. Corregir los gestos del launcher: distinguir un toque de un deslizamiento, evitar que el overlay desplace Ajustes y recuperar correctamente el estado tras un evento de soltar perdido.
-2. Resolver la entrada táctil de Super Hex para que el juego sea jugable antes de considerarlo parte de una release estable.
-3. Verificar que el teclado y la galería siguen funcionando tras cada cambio táctil.
-4. Revisar el render de la nueva UI de Cubo en host; su compilación no garantiza que se vea correctamente.
-5. No cambiar el driver táctil oficial sin evidencia: el sistema original responde bien y los fallos se concentran en las apps añadidas.
+A veces, abrir una aplicación o tocar una tecla puede requerir entre 6 y 20 toques rápidos. Si el toque no produce respuesta, el desarrollador ha observado que apagar y volver a encender la pantalla puede hacer que aparezca la sección que se había tocado. También ha funcionado con el teclado.
 
-## Cambios técnicos previos documentados
+Es una solución temporal, no una corrección definitiva. El desarrollador también observa que la respuesta podría parecer mejorar después de un tiempo de uso, pero no está confirmado que el sistema se adapte al toque.
 
-| Versión | Cambio | Evidencia/limitación |
-|---|---|---|
-| v21 | Tolerancias: launcher 24 px, teclado 22 px, galería 14 px; latch al presionar en juegos | Pruebas de host parciales |
-| v22 | Ajuste de flags de scroll en `make_canvas` y limpieza de scroll-chain `0x300` | Revisión de código/LVGL; no prueba física |
-| v23 | Cada evento de presionar inicia un gesto nuevo para evitar bloqueo tras un release perdido | Reproducido en PC |
-| v24 | La X de Super Hex se detecta al presionar desde cualquier pantalla | Arnés de PC; falta validación específica en reloj |
+## Problemas pendientes
 
-Aunque algunos cambios de código pasaron pruebas de PC, Diego confirma que la experiencia táctil sigue siendo imperfecta en el reloj real.
+1. Mejorar el registro de toques en el launcher y distinguir correctamente toques y deslizamientos.
+2. Corregir la entrada táctil del teclado QWERTY.
+3. Investigar por qué la segunda transferencia de fotos reemplaza las imágenes anteriores en vez de añadirlas.
+4. Mejorar la estabilidad de Cubo y resolver los problemas que hacen que Super Hex no sea recomendable.
+5. Volver a probar todas las funciones en el reloj tras cada cambio.
 
-## Módulos
+## Componentes principales
 
-- **Launcher:** `menu.inc.c`; Galería, Super Hex, Cubo, Recuperación, Ayuda y Cerrar.
-- **Galería:** `gallery.inc.c`; imágenes RGB565 bajo `/user/`, hasta 24 imágenes.
-- **Teclado:** `kbd_qwerty.c`; teclado QWERTY horizontal.
-- **Super Hex:** `superhex.inc.c`; juego original inspirado en *Super Hexagon*.
-- **Cubo:** `runner.inc.c`, `runner_levels.inc`; 15 niveles originales, inspirado en *Geometry Dash*.
-- **Música:** retirada de la compilación; no hay ruta A2DP Source demostrada.
+- **Launcher:** `menu.inc.c`.
+- **Galería:** `gallery.inc.c`; imágenes RGB565 bajo `/user/`.
+- **Teclado:** `kbd_qwerty.c`.
+- **Super Hex:** `superhex.inc.c`.
+- **Cubo:** `runner.inc.c` y `runner_levels.inc`.
 
-Las inspiraciones son referencias de diseño; Project Beyond no está afiliado a los autores de esos juegos y no debe incluir recursos protegidos sin permiso.
+La función de música se retiró de la compilación al no estar demostrada una ruta A2DP Source funcional.
 
-## Seguridad
+## Compatibilidad y seguridad
 
-- No se ha demostrado que v24 funcione de forma estable en el reloj.
-- No flashear directamente sobre v12: ese salto no está probado en este proyecto.
-- Antes de una instalación, verificar modelo, versión base, integridad del archivo y recuperación posible.
-- Las instrucciones completas están en [INSTALACION.md](INSTALACION.md).
+El objetivo de esta publicación es SM-R390 con firmware base R390XXU0AZA3. No se debe asumir compatibilidad con otras variantes o firmware. No instales si no puedes comprobar el paquete y disponer de un procedimiento de recuperación adecuado.
+
+No uses comandos `FORMAT`, `SHIPMODE` ni `DELLBTADDR`. Consulta [Instalación y recuperación](./INSTALACION.md).
