@@ -4,7 +4,7 @@
 **Desarrollador:** DiegOS Studio  
 **Dispositivo objetivo:** Samsung Galaxy Fit3 (SM-R390)  
 **Firmware base:** R390XXU0AZA3  
-**Estado:** experimental; probado por el desarrollador en un reloj real.
+**Estado:** experimental; probado por el desarrollador en un reloj real. La Galería y la transferencia de fotos se reportan estables tras la corrección.
 
 ---
 
@@ -38,7 +38,7 @@ Los siguientes resultados corresponden a pruebas del desarrollador en un reloj r
 |---|---|
 | Pantalla táctil | La respuesta mejoró notablemente. Los fallos son ahora poco frecuentes, según las pruebas del desarrollador. |
 | Launcher Apps extras | Responde mucho mejor que antes; todavía pueden ocurrir fallos ocasionales. |
-| Galería | Funciona. Sigue pendiente un error al transferir fotografías nuevas desde el instalador HTML del PC. |
+| Galería | Estable según las pruebas actuales; la transferencia de fotografías desde el HTML del PC ya fue corregida. |
 | Teclado QWERTY | Funciona, pero a veces presenta pequeños retrasos y puede registrar dos o tres teclas adicionales. Es un fallo poco frecuente. |
 | Juego Cubo | Jugable; puede congelarse brevemente en ocasiones. Inspirado en Geometry Dash. |
 | Super Hex | Sigue inestable y presenta problemas de rendimiento. No se recomienda para jugar con regularidad por ahora. Inspirado en Super Hexagon. |
@@ -53,11 +53,9 @@ El teclado conserva un problema ocasional: puede retrasarse un poco o registrar 
 
 No se ha confirmado que la respuesta táctil mejore simplemente por usar el reloj durante más tiempo.
 
-### Error conocido de la Galería: transferencia de fotos
+### Galería y transferencia de fotos
 
-Al enviar fotografías desde el instalador HTML del PC por segunda vez, las nuevas imágenes pueden reemplazar a las anteriores en lugar de añadirse a ellas. Es un error pendiente de investigación, no una limitación intencional confirmada.
-
-**Conserva las fotos originales en el PC.** No des por hecho que las imágenes anteriores permanecerán en el reloj al repetir la transferencia.
+El desarrollador informa que corrigió el problema de transferencias repetidas. La Galería y el envío de fotografías se consideran estables en las pruebas actuales. Como con cualquier herramienta experimental, se recomienda conservar copias de las fotos importantes en el PC.
 
 ### Juegos
 
@@ -98,7 +96,7 @@ No utilices comandos destructivos como `FORMAT`, `SHIPMODE` o `DELLBTADDR`.
 
 - **Toques que no responden:** v2 mejora considerablemente la respuesta táctil, pero pueden persistir fallos ocasionales. No se garantiza que todas las interacciones puedan recuperarse.
 - **Teclado con retraso o teclas adicionales:** es un problema conocido y poco frecuente. Evita asumir que el teclado es adecuado para uso diario hasta que se optimice.
-- **Fotos reemplazadas:** conserva copias en el PC y evita transferencias repetidas hasta proteger los datos importantes.
+- **Galería:** la transferencia de fotos se corrigió y se reporta estable; conserva copias de las imágenes importantes en el PC.
 - **Juego congelado:** sal del juego si puedes. Super Hex no se recomienda en el estado actual.
 - **Reloj bloqueado o instalación interrumpida:** utiliza únicamente un procedimiento de recuperación verificado para tu modelo y firmware. No se garantiza que todos los fallos sean recuperables.
 
