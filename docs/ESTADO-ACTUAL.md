@@ -1,36 +1,40 @@
-# Estado actual — Project Beyond
+# Estado actual — Project Beyond v2
 
-**Publicación prevista:** versión 1  
+**Publicación:** v2  
 **Dispositivo:** Samsung Galaxy Fit3 SM-R390  
 **Firmware base:** R390XXU0AZA3  
-**Estado:** experimental; probado en un reloj real, con limitaciones conocidas.
+**Estado:** experimental; probado por el desarrollador en un reloj real.
 
 ## Resultados reportados por Diego
 
 | Módulo | Estado observado en el reloj |
 |---|---|
-| Galería | Funciona, pero existe un error al transferir fotos por segunda vez desde el instalador HTML del PC: las nuevas reemplazan a las anteriores. |
-| Cubo | Jugable. En ocasiones se congela aproximadamente medio segundo y continúa. Inspirado en Geometry Dash. |
-| Teclado QWERTY | Experimental; todavía pierde algunos toques y es inconsistente para el uso diario. |
-| Launcher Apps extras | Mejoró, pero a veces no registra el toque o se comporta mal al deslizar. |
-| Táctil | Mejoró considerablemente; quedan retrasos ocasionales y muy pocos toques fantasma. |
-| Super Hex | Sigue inestable y no se recomienda jugarlo actualmente. Inspirado en Super Hexagon. |
+| Galería y transferencia de fotos | Estables en las pruebas actuales. El desarrollador corrigió el problema que afectaba a las transferencias repetidas. |
+| Cubo | Jugable. En ocasiones puede congelarse brevemente y continuar. Inspirado en Geometry Dash. |
+| Teclado QWERTY | Funciona; ocasionalmente presenta un pequeño retraso o registra dos o tres teclas adicionales. |
+| Launcher Apps extras | Responde mucho mejor que antes; pueden persistir fallos ocasionales al tocar o deslizar. |
+| Táctil | Mejoró notablemente; los fallos son ahora poco frecuentes según las pruebas actuales. |
+| Super Hex | Sigue inestable y no se recomienda jugarlo regularmente por ahora. Inspirado en Super Hexagon. |
 
-Estos son resultados reportados tras probar el paquete en un reloj físico. Las pruebas de compilación, validación y host en PC son complementarias y no sustituyen las pruebas reales.
+Estos resultados reflejan pruebas reportadas en un reloj físico. Las pruebas de compilación, validación y host en PC son complementarias y no sustituyen las pruebas reales.
 
-## Navegación táctil: solución temporal observada
+## Mejoras táctiles de v2
 
-A veces, abrir una aplicación o tocar una tecla puede requerir entre 6 y 20 toques rápidos. Si el toque no produce respuesta, el desarrollador ha observado que apagar y volver a encender la pantalla puede hacer que aparezca la sección que se había tocado. También ha funcionado con el teclado.
+v2 se centra en mejorar la respuesta táctil del launcher, la Galería y el teclado. En las pruebas del desarrollador, los problemas táctiles que antes requerían muchos intentos son ahora poco frecuentes. La mejora no significa que todos los errores estén eliminados.
 
-Es una solución temporal, no una corrección definitiva. El desarrollador también observa que la respuesta podría parecer mejorar después de un tiempo de uso, pero no está confirmado que el sistema se adapte al toque.
+El teclado aún puede retrasarse un poco o registrar dos o tres teclas adicionales. Este comportamiento sigue pendiente de optimización.
+
+## Galería y transferencia de fotos
+
+El desarrollador informa que corrigió el problema que podía hacer que una segunda transferencia desde el HTML del PC reemplazara las fotos anteriores. La Galería y la transferencia de fotos se consideran estables según las pruebas actuales. Para fotos importantes, conserva también una copia en el PC.
 
 ## Problemas pendientes
 
-1. Mejorar el registro de toques en el launcher y distinguir correctamente toques y deslizamientos.
-2. Corregir la entrada táctil del teclado QWERTY.
-3. Investigar por qué la segunda transferencia de fotos reemplaza las imágenes anteriores en vez de añadirlas.
-4. Mejorar la estabilidad de Cubo y resolver los problemas que hacen que Super Hex no sea recomendable.
-5. Volver a probar todas las funciones en el reloj tras cada cambio.
+1. Reducir los fallos táctiles ocasionales del launcher y mejorar la detección de deslizamientos.
+2. Optimizar el teclado QWERTY para evitar retrasos y entradas duplicadas ocasionales.
+3. Investigar las pausas breves que pueden ocurrir en Cubo.
+4. Mejorar el rendimiento y la estabilidad de Super Hex.
+5. Volver a probar las funciones en el reloj físico después de cada cambio.
 
 ## Componentes principales
 
@@ -44,6 +48,6 @@ La función de música se retiró de la compilación al no estar demostrada una 
 
 ## Compatibilidad y seguridad
 
-El objetivo de esta publicación es SM-R390 con firmware base R390XXU0AZA3. No se debe asumir compatibilidad con otras variantes o firmware. No instales si no puedes comprobar el paquete y disponer de un procedimiento de recuperación adecuado.
+El objetivo es SM-R390 con firmware base R390XXU0AZA3. No se debe asumir compatibilidad con otras variantes o firmware. No instales si no puedes comprobar el paquete y disponer de un procedimiento de recuperación adecuado.
 
 No uses comandos `FORMAT`, `SHIPMODE` ni `DELLBTADDR`. Consulta [Instalación y recuperación](./INSTALACION.md).
