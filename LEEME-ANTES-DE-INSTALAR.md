@@ -1,129 +1,147 @@
-# PROJECT BEYOND — LEEME ANTES DE INSTALAR
+# PROJECT BEYOND — LÉEME ANTES DE INSTALAR
 
-**Publicación:** versión 1  
+**Publicación:** Project Beyond v2  
 **Desarrollador:** DiegOS Studio  
 **Dispositivo objetivo:** Samsung Galaxy Fit3 (SM-R390)  
 **Firmware base:** R390XXU0AZA3  
-**Estado:** experimental; probado en un reloj real, con limitaciones conocidas.
+**Estado:** experimental; probado por el desarrollador en un reloj real.
 
 ---
 
 ## 1. ¿Qué es Project Beyond?
 
-Project Beyond es un proyecto independiente que modifica componentes adicionales de la interfaz de la Samsung Galaxy Fit3 para experimentar con aplicaciones, juegos y nuevas formas de interacción.
+**Project Beyond** es un proyecto independiente que modifica componentes adicionales de la interfaz de Samsung Galaxy Fit3 para experimentar con aplicaciones, juegos y nuevas formas de interacción.
 
-Incluye una galería de imágenes, un teclado QWERTY y juegos propios. No es un sistema operativo nuevo ni un producto oficial de Samsung.
+Parte del trabajo de FreeMyFit3 e incorpora una interfaz adicional con galería de imágenes, teclado QWERTY y juegos.
 
 El objetivo es ampliar las posibilidades del reloj sin reemplazar intencionalmente el bootloader ni las particiones originales. Esto no significa que la modificación esté libre de riesgos.
 
-**Project Beyond no está afiliado, patrocinado ni respaldado por Samsung.**
+**Project Beyond no es un producto oficial de Samsung, no está afiliado a Samsung ni está respaldado por la empresa.**
 
 ## 2. Compatibilidad
 
-Esta publicación está destinada exclusivamente a:
+Esta versión está destinada exclusivamente a:
 
 - **Modelo:** Samsung Galaxy Fit3 SM-R390.
 - **Firmware base:** R390XXU0AZA3.
-- **Archivo previsto:** `Proyect Beyond.bin`.
+- **Archivo de v2 esperado:** `fit3-apps-ui-v28.bin`.
 
-No instales el paquete en otros modelos, variantes o versiones de firmware sin verificar su compatibilidad.
+No instales el paquete en otros modelos, variantes o versiones de firmware sin verificar previamente su compatibilidad.
 
-Una vez instalada una versión modificada, no debería ser necesario volver al firmware stock ni restablecer de fábrica para instalar una actualización compatible. Aun así, no asumas que cualquier salto entre versiones funcionará: revisa las notas de cada actualización.
+Una vez instalada una versión modificada, no necesariamente hace falta volver al firmware original ni restablecer de fábrica para instalar una actualización compatible. Sin embargo, no se garantiza que cualquier salto entre versiones funcione: revisa las notas de cada publicación y no instales actualizaciones no validadas.
 
 ## 3. ¿Qué funciona y qué no?
 
-Los siguientes resultados fueron reportados por el desarrollador tras probar el proyecto en un reloj real. No son una garantía de funcionamiento en todos los dispositivos.
+Los siguientes resultados corresponden a pruebas del desarrollador en un reloj real. No garantizan el mismo comportamiento en todos los dispositivos.
 
-| Función | Estado actual |
+| Función | Estado en v2 |
 |---|---|
-| Galería | Funciona, pero tiene un error al volver a transferir fotos desde el instalador HTML del PC. |
-| Cubo | Jugable; ocasionalmente se congela alrededor de medio segundo y continúa. Inspirado en Geometry Dash. |
-| Super Hex | Inestable; no se recomienda jugarlo por ahora. Inspirado en Super Hexagon. |
-| Launcher Apps extras | Mejoró, pero algunos toques y deslizamientos pueden fallar. |
-| Teclado QWERTY | Experimental; todavía pierde toques y es demasiado inconsistente para el uso diario. |
-| Pantalla táctil | Mejoró notablemente; aún pueden ocurrir retrasos y, rara vez, toques fantasma. |
+| Pantalla táctil | La respuesta mejoró notablemente. Los fallos son ahora poco frecuentes, según las pruebas del desarrollador. |
+| Launcher Apps extras | Responde mucho mejor que antes; todavía pueden ocurrir fallos ocasionales. |
+| Galería | Funciona. Sigue pendiente un error al transferir fotografías nuevas desde el instalador HTML del PC. |
+| Teclado QWERTY | Funciona, pero a veces presenta pequeños retrasos y puede registrar dos o tres teclas adicionales. Es un fallo poco frecuente. |
+| Juego Cubo | Jugable; puede congelarse brevemente en ocasiones. Inspirado en Geometry Dash. |
+| Super Hex | Sigue inestable y presenta problemas de rendimiento. No se recomienda para jugar con regularidad por ahora. Inspirado en Super Hexagon. |
 
-### Nota sobre la respuesta táctil
+### Mejoras táctiles de v2
 
-En ocasiones, una aplicación o una tecla puede necesitar entre 6 y 20 toques rápidos para responder. Es posible que la respuesta parezca mejorar después de un tiempo de uso, pero no está confirmado que el sistema se adapte al toque.
+v2 se centra en mejorar la respuesta táctil del launcher, la Galería y el teclado. La nueva estrategia consulta periódicamente el panel táctil y determina la liberación del dedo mediante muestras consecutivas sin contacto. También protege las pantallas nuevas para que no reaccionen a un dedo que sigue apoyado desde la pantalla anterior.
 
-Si tocas una sección y no abre, el desarrollador ha observado que apagar y volver a encender la pantalla puede hacer que aparezca la sección previamente tocada. También puede ayudar en el teclado. Es una solución temporal, no una reparación definitiva.
+En las pruebas realizadas, los problemas que antes podían exigir muchos intentos son ahora poco frecuentes. **La mejora es importante, pero no significa que todos los errores táctiles estén eliminados.**
 
-### Error conocido de la galería
+El teclado conserva un problema ocasional: puede retrasarse un poco o registrar dos o tres teclas adicionales. Este comportamiento sigue pendiente de optimización.
 
-Al enviar fotografías desde el instalador HTML del PC por segunda vez, las nuevas imágenes pueden reemplazar a las anteriores en lugar de añadirse a ellas. Se considera un error pendiente de investigación, no una limitación intencional confirmada.
+No se ha confirmado que la respuesta táctil mejore simplemente por usar el reloj durante más tiempo.
+
+### Error conocido de la Galería: transferencia de fotos
+
+Al enviar fotografías desde el instalador HTML del PC por segunda vez, las nuevas imágenes pueden reemplazar a las anteriores en lugar de añadirse a ellas. Es un error pendiente de investigación, no una limitación intencional confirmada.
 
 **Conserva las fotos originales en el PC.** No des por hecho que las imágenes anteriores permanecerán en el reloj al repetir la transferencia.
 
+### Juegos
+
+Cubo se puede jugar, aunque puede presentar pausas ocasionales. Super Hex continúa inestable y su rendimiento sigue pendiente de optimización. La mejora táctil de v2 no significa que Super Hex se haya corregido.
+
 ## 4. Antes de instalar
 
-- Comprueba el modelo y la versión del firmware.
+- Comprueba que el modelo y el firmware coincidan con los indicados en la sección de compatibilidad.
 - Asegúrate de tener al menos un **50 % de batería**.
 - Conserva una copia del firmware original correspondiente a tu dispositivo.
-- Verifica que dispones de un procedimiento de recuperación compatible antes de comenzar.
-- Descarga el paquete desde una fuente confiable y comprueba que sea el archivo esperado.
-- Cierra Galaxy Wearable y otros programas que puedan ocupar la conexión Bluetooth, siguiendo las instrucciones del flasher.
+- Comprueba que dispones de un procedimiento de recuperación compatible antes de comenzar.
+- Descarga el paquete desde una fuente confiable y verifica que el archivo sea el esperado.
+- Cierra Galaxy Wearable y otros programas que puedan interferir con la conexión Bluetooth, siguiendo las instrucciones del flasher.
 
-**Restablecer de fábrica no devuelve por sí solo el firmware original.** Solo limpia datos y emparejamientos. No es necesario restablecer de fábrica para cada actualización compatible.
+**Restablecer el reloj a los valores de fábrica no devuelve por sí solo el firmware original.** Tampoco debe asumirse que es necesario restablecer de fábrica para cada actualización compatible.
 
 Si no puedes confirmar cómo recuperar el reloj en caso de fallo, no continúes.
 
 ## 5. Instalación
 
-Estos pasos son orientativos y no sustituyen las instrucciones de la herramienta de flasheo.
+Estos pasos son orientativos y no sustituyen las instrucciones específicas del paquete y de la herramienta de flasheo.
 
 1. Confirma que tienes una Galaxy Fit3 SM-R390 con firmware base R390XXU0AZA3.
-2. Prepara la batería, conserva el firmware original y verifica un procedimiento de recuperación.
+2. Prepara la batería, conserva el firmware original y comprueba el procedimiento de recuperación.
 3. Cierra Galaxy Wearable y otras aplicaciones que puedan interferir con Bluetooth.
-4. Abre el instalador externo [fit3-flasher de yuriyurin](https://github.com/yuriyurin/fit3-flasher) y sigue su documentación original.
-5. Conecta el reloj desde el PC mediante Bluetooth serial/SPP, según las instrucciones del flasher. Si no conecta o la versión no coincide, detente.
-6. Selecciona `Proyect Beyond.bin` y verifica que es el paquete correcto.
-7. Inicia la instalación solo si entiendes los riesgos. No cierres el instalador ni interrumpas la conexión durante la transferencia.
-8. Espera a que termine y comprueba por separado el launcher, el teclado, la galería y los juegos.
+4. Abre la herramienta externa [fit3-flasher de yuriyurin](https://github.com/yuriyurin/fit3-flasher) y sigue su documentación original.
+5. Conecta el reloj desde el PC mediante Bluetooth serial/SPP, si así lo requieren las instrucciones de la herramienta. Si la conexión falla o el firmware no coincide, detente.
+6. Selecciona el archivo de v2 **`fit3-apps-ui-v28.bin`** solo si ese nombre corresponde al paquete adjunto en la publicación que descargaste. No cambies el nombre de otro binario para hacerlo coincidir.
+7. Verifica nuevamente el modelo y la compatibilidad antes de iniciar.
+8. No desconectes el reloj ni interrumpas el proceso durante la instalación.
+9. Cuando termine, comprueba por separado el launcher, la Galería, el teclado y los juegos.
 
-Para actualizar, no es necesario volver al firmware stock ni restablecer de fábrica si la actualización es compatible con la versión instalada. **No instales saltos entre versiones no validados.**
+Para actualizar desde una versión anterior, no es necesario volver al firmware original ni restablecer de fábrica si la actualización es compatible. **No instales saltos entre versiones que no hayan sido validados.**
 
 No utilices comandos destructivos como `FORMAT`, `SHIPMODE` o `DELLBTADDR`.
 
 ## 6. Recuperación y solución de problemas
 
-- **Toques que no responden:** apagar y volver a encender la pantalla ha servido como solución temporal en las pruebas; no garantiza recuperar todos los eventos.
-- **Fotos reemplazadas:** conserva copias en el PC y evita transferencias repetidas hasta respaldar los datos.
+- **Toques que no responden:** v2 mejora considerablemente la respuesta táctil, pero pueden persistir fallos ocasionales. No se garantiza que todas las interacciones puedan recuperarse.
+- **Teclado con retraso o teclas adicionales:** es un problema conocido y poco frecuente. Evita asumir que el teclado es adecuado para uso diario hasta que se optimice.
+- **Fotos reemplazadas:** conserva copias en el PC y evita transferencias repetidas hasta proteger los datos importantes.
 - **Juego congelado:** sal del juego si puedes. Super Hex no se recomienda en el estado actual.
-- **Reloj bloqueado o instalación interrumpida:** utiliza únicamente un procedimiento de recuperación comprobado para tu modelo y firmware. No se garantiza que todos los fallos sean recuperables.
+- **Reloj bloqueado o instalación interrumpida:** utiliza únicamente un procedimiento de recuperación verificado para tu modelo y firmware. No se garantiza que todos los fallos sean recuperables.
 
-Que el paquete compile o pase pruebas en PC no demuestra que esté libre de errores en el reloj físico.
+Que el paquete compile, pase pruebas en PC o sea aceptado por un validador no demuestra por sí solo que esté libre de errores en el reloj físico.
 
 ## 7. Créditos y agradecimientos
 
 **Desarrollado por DiegOS Studio.**
 
-- **Musicalista — FreeMyFit3:** proyecto base y referencia de trabajo.  
+- **Musicalista — FreeMyFit3:** proyecto de referencia y base de trabajo.  
   https://github.com/Musicalista/freemyfit3
-- **yuriyurin — fit3-flasher:** herramienta externa para la comunicación e instalación.  
+- **yuriyurin — fit3-flasher:** herramienta externa relacionada con el flasheo y la comunicación con la Galaxy Fit3.  
   https://github.com/yuriyurin/fit3-flasher
 - **LVGL:** biblioteca gráfica utilizada por la interfaz.
 - **Cubo:** inspirado en la jugabilidad de Geometry Dash.
 - **Super Hex:** inspirado en Super Hexagon.
 
-Las referencias no implican afiliación ni autorización oficial de los titulares. El flasher no fue creado por DiegOS Studio.
+Estos créditos e inspiraciones no implican afiliación ni autorización oficial de sus titulares. Los nombres y derechos de sus respectivos propietarios siguen perteneciendo a ellos.
 
 ## 8. Responsabilidad y advertencias
 
 Project Beyond se proporciona con fines experimentales y educativos, **tal como está y sin garantía de funcionamiento**.
 
-Modificar el software puede ocasionar fallos, pérdida de datos, bloqueos, problemas de conectividad o la necesidad de recuperar el firmware. En determinadas circunstancias, el dispositivo podría quedar inutilizable.
+Modificar el software de un dispositivo puede ocasionar fallos, pérdida de datos, bloqueos, problemas de conectividad o la necesidad de recuperar el firmware. En determinadas circunstancias, el dispositivo podría quedar inutilizable.
 
-El desarrollador no garantiza compatibilidad con otros modelos o firmwares, ausencia de errores, funcionamiento perfecto de las aplicaciones ni que exista un método de recuperación funcional en todas las situaciones.
+El desarrollador no garantiza:
 
-Instala la modificación solo si comprendes los riesgos. Eres responsable de comprobar la compatibilidad, proteger tus datos y decidir si deseas continuar. Estas advertencias no excluyen responsabilidades que legalmente no puedan excluirse.
+- Compatibilidad con dispositivos o firmwares distintos de los indicados.
+- Ausencia de errores o pérdida de datos.
+- Funcionamiento perfecto de la pantalla táctil, las aplicaciones o los juegos.
+- Que todos los fallos puedan solucionarse mediante un restablecimiento o una reinstalación.
+- Que exista un método de recuperación funcional en todas las situaciones.
 
-No redistribuyas firmware propietario de Samsung sin autorización. La licencia del código derivado debe revisarse antes de establecer condiciones de redistribución.
+Instala la modificación únicamente si comprendes los riesgos. Eres responsable de comprobar la compatibilidad, proteger tus datos y decidir si deseas continuar.
 
-## 9. Estado de la publicación
+Estas advertencias no pretenden excluir responsabilidades que legalmente no puedan excluirse.
 
-La primera publicación se identifica como **Project Beyond — versión 1**. Los números de versiones internas de desarrollo no se utilizan como nombre de la release pública.
+## 9. Distribución y estado del proyecto
 
-La existencia de este documento no significa que el archivo binario esté adjunto. Descarga el paquete solo cuando aparezca publicado explícitamente en la sección de releases.
+Project Beyond es un proyecto independiente de DiegOS Studio. Samsung, Geometry Dash y Super Hexagon no patrocinan ni respaldan esta modificación.
+
+Distribuye únicamente archivos para los que tengas permiso. No incluyas ni redistribuyas firmware original de Samsung sin autorización. La licencia del código derivado debe revisarse antes de establecer condiciones de redistribución.
+
+**Project Beyond v2 se centra en la mejora de la respuesta táctil.** La mejora se ha observado en el reloj físico del desarrollador. El teclado todavía puede presentar retrasos y pulsaciones adicionales ocasionales; el error de transferencia de fotos sigue pendiente, y Super Hex continúa inestable.
 
 **Project Beyond: más posibilidades para la Galaxy Fit3, con transparencia sobre sus límites.**
