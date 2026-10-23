@@ -36,6 +36,20 @@ Project Beyond está destinado al **Samsung Galaxy Fit3 SM-R390**, con firmware 
 
 Consulta el [LEEME antes de instalar](./LEEME-ANTES-DE-INSTALAR.md) y la guía de [instalación y recuperación](./docs/INSTALACION.md). Conserva una copia del firmware original y verifica que existe un procedimiento de recuperación compatible antes de instalar. No uses comandos `FORMAT`, `SHIPMODE` ni `DELLBTADDR`.
 
+## 💚 Apoya a Project Beyond
+
+¿Quieres apoyar el desarrollo de Project Beyond? Puedes colaborar mediante Yape. Cada aporte ayuda a que el proyecto siga creciendo.
+
+### 📲 Dona por Yape
+
+Escanea el código QR desde la aplicación Yape para realizar tu donación.
+
+![Código QR para donaciones por Yape](./assets/yape_qr_2026-10-22T19-02-26.png)
+
+**Titular:** Estela Aurora Chicoma Perleche
+
+¡Gracias por apoyar a Project Beyond! 💚
+
 ## Créditos
 
 - [FreeMyFit3 — Musicalista](https://github.com/Musicalista/freemyfit3), proyecto base.
